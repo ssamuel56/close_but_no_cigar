@@ -1,7 +1,6 @@
 require_relative 'grand_bash.rb'
 require "minitest/autorun"
 
-
 class Test_grand_bash < Minitest::Test
   def test_begin
     assert_equal(1, 1)
@@ -50,6 +49,11 @@ class Test_grand_bash < Minitest::Test
     my_number = "4685"
     bash_numbers = ["1233", "4675", "7865", "1234", "4885", "1678", "7864", "5555", "4685"]
     assert_equal(["4675", "4885"], off_by_one_arr(my_number, bash_numbers))
+  end
+  def test_check_for_numbers_off
+    my_number = "1205"
+    bash_numbers = ["1233", "4675", "7865", "1234", "1205", "2586"]
+    assert_equal(["2", "3", "3", "2", "0", "4"], check_for_all_numbers(my_number, bash_numbers))
   end
 end
 

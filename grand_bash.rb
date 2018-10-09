@@ -37,4 +37,24 @@ def off_by_one_arr(my_number, bash_numbers)
   arr
 end
 
-print off_by_one_arr("1234", ["1233", "1345", "7645", "1234"])
+def off_by_how_many_number(my_number, bash_numbers)
+  counter = bash_numbers.length
+  i = 0
+  my_number.length.times do
+    if bash_numbers[i] == my_number[i]
+      counter -= 1
+    end
+    i += 1
+  end
+ puts "#{my_number} is off by#{counter.to_s}"
+ return counter.to_s
+end
+
+def check_for_all_numbers(my_number, bash_numbers)
+  arr_match = []
+  puts "\n"
+  bash_numbers.each do |y|
+    arr_match << off_by_how_many_number(y, my_number)
+  end
+  arr_match
+end
