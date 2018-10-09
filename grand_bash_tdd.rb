@@ -36,10 +36,20 @@ class Test_grand_bash < Minitest::Test
     bash_numbers = ["1233", "4562", "7865", "1234", "1198", "1678", "7864", "5555", "4685"]
     assert_equal(["7865", "7864"], off_by_one_arr(my_number, bash_numbers))
   end
-  def test_for_no_winner_more_numbers
-    my_number = "4685"
+  def test_for_no_winner_more_numbers_2
+    my_number = "6842"
     bash_numbers = ["1233", "4562", "7865", "1234", "1198", "1678", "7864", "5555", "4685"]
     assert_equal([], off_by_one_arr(my_number, bash_numbers))
+  end
+  def test_for_no_winner_more_numbers_3
+    my_number = "7645"
+    bash_numbers = ["1233", "4562", "7865", "1234", "1198", "1678", "7864", "5555", "4685"]
+    assert_equal([], off_by_one_arr(my_number, bash_numbers))
+  end
+  def test_for_multiple_winners_with_more_numbers
+    my_number = "4685"
+    bash_numbers = ["1233", "4675", "7865", "1234", "4885", "1678", "7864", "5555", "4685"]
+    assert_equal(["4675", "4885"], off_by_one_arr(my_number, bash_numbers))
   end
 end
 
